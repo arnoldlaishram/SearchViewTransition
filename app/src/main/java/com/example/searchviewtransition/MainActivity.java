@@ -20,7 +20,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     FrameLayout mainLayout;
-    CardView homeSearchCard;
+    CardView homeCard;
+    CardView searchCard;
     FrameLayout homeCardContainer;
     FrameLayout searchLayout;
     View alphaView;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         isInSearchView = false;
 
-        homeSearchCard.setOnClickListener(new View.OnClickListener() {
+        homeCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 animateToSearchView();
@@ -60,11 +61,11 @@ public class MainActivity extends AppCompatActivity {
                         .addTransition(new ChangeBounds())
                         .addTransition(new ChangeTransform())
                         .addTarget(R.id.homeCard)
-                        .addTarget(R.id.searchCard));
+                        .addTarget(searchCard));
 
         TransitionManager.beginDelayedTransition(mainLayout, transitionSet);
 
-        homeCardContainer.addView(homeSearchCard);
+        homeCardContainer.addView(homeCard);
         mainLayout.removeView(searchLayout);
     }
 
@@ -76,13 +77,13 @@ public class MainActivity extends AppCompatActivity {
                 .addTransition(new TransitionSet()
                         .addTransition(new ChangeBounds())
                         .addTransition(new ChangeTransform())
-                        .addTarget(homeSearchCard)
+                        .addTarget(homeCard)
                         .addTarget(R.id.searchCard));
 
         TransitionManager.beginDelayedTransition(mainLayout, transitionSet);
 
         mainLayout.addView(searchLayout);
-        homeCardContainer.removeView(homeSearchCard);
+        homeCardContainer.removeView(homeCard);
     }
 
     private void initViews() {
@@ -95,12 +96,14 @@ public class MainActivity extends AppCompatActivity {
 
         // init the main layout view
         mainLayout = findViewById(R.id.mainLayout);
-        homeSearchCard = mainLayout.findViewById(R.id.homeCard);
+        homeCard = mainLayout.findViewById(R.id.homeCard);
         homeCardContainer = mainLayout.findViewById(R.id.homeCardContainer);
 
         // init search layout views
         searchLayout = (FrameLayout) getLayoutInflater().inflate(R.layout.seach_view_layout, null);
         alphaView = searchLayout.findViewById(R.id.alphaView);
+        searchCard = searchLayout.findViewById(R.id.searchCard);
+
         recyclerView = searchLayout.findViewById(R.id.recycler_search_result);
 
         // init recycler view
