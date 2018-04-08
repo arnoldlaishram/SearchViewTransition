@@ -1,7 +1,7 @@
 # SearchViewTransition
 A simple transition when search mode is on. This app uses android Transitions for smooth animation
 
-![The search layout animation](https://github.com/ArnoldLaishram/SearchViewTransition/blob/master/transition.gif)
+<img src="https://github.com/ArnoldLaishram/SearchViewTransition/blob/master/transition.gif" width ="360"/>
 
 It basically consist of 2 layouts, **main** and **search view**.
 
