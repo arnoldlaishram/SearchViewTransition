@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SearchViewTransition</string>
+    <string name="transition_search_app">Transition Search App</string>
+</resources>
